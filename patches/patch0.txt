@@ -38490,11 +38490,11 @@ diff --strip-trailing-cr -NBbaur squashfs-tools/unsquashfs.c squashfs-tools-patc
 +    if(swap)
 +        ERROR("Reading a different endian SQUASHFS filesystem on %s\n", source);
  
- 	/*
- 	 * Try to read a Squashfs 4 superblock
- 	 */
- 	read_fs_bytes(fd, SQUASHFS_START, sizeof(struct squashfs_super_block),
- 		&sBlk_4);
+     /*
+      * Try to read a Squashfs 4 superblock
+      */
+     read_fs_bytes(fd, SQUASHFS_START, sizeof(struct squashfs_super_block),
+         &sBlk_4);
 -	swap = sBlk_4.s_magic != SQUASHFS_MAGIC;
 +	// CJH: swap detection already done generically above
 +    //swap = sBlk_4.s_magic != SQUASHFS_MAGIC;
